@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f4800c-806a-4b73-9f0e-4c5ec6767c05" name="Default" comment="placed menu button components without interaction">
-      <change afterPath="$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/sideStrip/style.js" afterDir="false" />
+    <list default="true" id="e6f4800c-806a-4b73-9f0e-4c5ec6767c05" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menus/sideStrip/SideStrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/sideStrip/SideStrip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unit_test/testSideStrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/unit_test/testSideStrip.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -80,8 +81,8 @@
       <file leaf-file-name="style.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            <state relative-caret-position="352">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -188,6 +189,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="menus" type="462c0819:PsiDirectoryNode" />
               <item name="sideStrip" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fancy-menu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fancy-menu" type="462c0819:PsiDirectoryNode" />
+              <item name="unit_test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -299,7 +305,7 @@
       <option name="presentableId" value="Default" />
       <updated>1554756518769</updated>
       <workItem from="1554756519982" duration="9037000" />
-      <workItem from="1554826884498" duration="15181000" />
+      <workItem from="1554826884498" duration="16084000" />
     </task>
     <task id="LOCAL-00001" summary="setup shell of the project with react and unit testing">
       <created>1554817934988</created>
@@ -308,13 +314,17 @@
       <option name="project" value="LOCAL" />
       <updated>1554817934989</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="placed menu button components without interaction">
+      <created>1554845239213</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554845239214</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test - 2019.04.09 at 17h 14m 19s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="Test - 2019.04.09 at 17h 14m 56s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -342,17 +352,20 @@
     <history-entry file="Test - 2019.04.09 at 17h 24m 29s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="Test - 2019.04.09 at 17h 27m 11s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24218000" />
+    <option name="totallyTimeSpent" value="25121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1446" y="298" width="1176" height="1232" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24934153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24934153" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32940108" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.32940108" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32883435" />
@@ -536,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        <state relative-caret-position="352">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
