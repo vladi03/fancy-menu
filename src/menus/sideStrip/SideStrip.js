@@ -5,38 +5,76 @@ import { styles } from "./style";
 import { Person } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 
-export const SideStripComponent = ({ classes, mainLinks, bottomLinks, expandMenu }) => (
-    <Drawer
-        classes={{ paper: classes.root }}
-        variant="permanent"
-        open={true}
-    >
-        <Avatar src="https://material-ui.com/static/images/avatar/7.jpg"  className={classes.avatarMain} >
-            <Person/>
-        </Avatar>
-        <Divider className={classes.divider} />
-        {mainLinks.map((link,index) => (
-            <MenuButton key={index}
-                        Icon={link.icon}
-                        label={link.label}
-                        showLabel={expandMenu}
-                        selected={link.selected}
-            />
-          ))
+export class SideStripComponent extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            selectedInternal: {area: "byConfig", index: -1},
+            expandMenuInternal: false
         }
+    }
 
-        <div style={{bottom: 0, position: "absolute"}}>
-            {bottomLinks.map((link,index) => (
-                <MenuButton key={index}
-                            Icon={link.icon}
-                            label={link.label}
-                            showLabel={expandMenu}
-                            selected={link.selected}
-                />
-            ))
-            }
-        </div>
-    </Drawer>
-);
+    onClickMenu(area, index, config) {
+        const { onClick } = this.props;
+        if(config && config.onClick && typeof(onClick) === "function") {
+            onClick(config);
+        }
+        else {
+            const selectedInternal = { area: area, index: index };
+            // noinspection JSCheckFunctionSignatures
+            this.setState({ selectedInternal });
+        }
+    }
+
+    render() {
+        const {classes, mainLinks, bottomLinks, expandMenu } = this.props;
+        const {expandMenuInternal} = this.state;
+        const expandMenuCalc = expandMenu || expandMenuInternal;
+
+        return  (
+            <Drawer
+                classes={{paper: classes.root}}
+                variant="permanent"
+                open={true}
+            >
+                <Avatar src="https://material-ui.com/static/images/avatar/7.jpg" className={classes.avatarMain}>
+                    <Person/>
+                </Avatar>
+                <Divider className={classes.divider}/>
+                {mainLinks.map((buttonConfig, index) => (
+                    <MenuButton key={index}
+                                config={buttonConfig}
+                                showLabel={expandMenuCalc}
+                                selected={
+                                    (buttonConfig.selected
+                                        && this.state.selectedInternal.area === "byConfig")
+                                ||
+                                    (this.state.selectedInternal.area === "main"
+                                        && this.state.selectedInternal.index === index)}
+                                onClick={() => this.onClickMenu("main", index, buttonConfig)}
+                    />
+                ))
+                }
+
+                <div style={{bottom: 0, position: "absolute"}}>
+                    {bottomLinks.map((buttonConfig, index) => (
+                        <MenuButton key={index}
+                                    config={buttonConfig}
+                                    showLabel={expandMenuCalc}
+                                    selected={
+                                        (buttonConfig.selected
+                                            && this.state.selectedInternal.area === "byConfig")
+                                        ||
+                                        (this.state.selectedInternal.area === "bottom"
+                                            && this.state.selectedInternal.index === index)}
+                                    onClick={() => this.onClickMenu("bottom", index, buttonConfig)}
+                        />
+                    ))
+                    }
+                </div>
+            </Drawer>
+        );
+    }
+}
 
 export const  SideStrip = withStyles(styles, { withTheme: true })(SideStripComponent);

@@ -37,6 +37,10 @@ export const styles = () => ({
     menuButtonActive: {
         color: "#6ea625",
         backgroundColor: "#fdfbff",
+        "&:hover": {
+            //you want this to be the same as the backgroundColor above
+            backgroundColor: "#fdfbff"
+        },
         width: 50,
         minWidth: 0,
         borderTopRightRadius: 25,
