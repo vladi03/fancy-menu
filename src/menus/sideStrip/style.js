@@ -1,7 +1,19 @@
 export const styles = () => ({
-    root: {
+    userLabel: {
+        marginTop: -20,
+        marginBottom: 10,
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+    menuCollapse: {
         backgroundColor: "#626166",
-        color: "#fdfbff"
+        color: "#fdfbff",
+        minWidth : 63
+    },
+    menuExpand: {
+        backgroundColor: "#626166",
+        color: "#fdfbff",
+        width: 150
     },
     divider: {
         backgroundColor: "#919095",
@@ -13,8 +25,8 @@ export const styles = () => ({
     avatarMain: {
         marginTop: 30,
         marginBottom: 30,
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: "auto",
+        marginRight: "auto",
         border: "1px solid white",
 
     },
@@ -25,14 +37,16 @@ export const styles = () => ({
     },
     menuButtonLabel: {
         marginLeft: 5,
+        width: 100
     },
     menuButton: {
-        color: "#919095",
-        width: 55,
+        color: "#cfcdd1",
+        width: "90%",
         minWidth: 0,
         paddingRight:0,
         marginBottom: 7,
         marginTop: 7,
+        textAlign: "left"
     },
     menuButtonActive: {
         color: "#6ea625",
@@ -41,7 +55,7 @@ export const styles = () => ({
             //you want this to be the same as the backgroundColor above
             backgroundColor: "#fdfbff"
         },
-        width: 50,
+        width: "90%",
         minWidth: 0,
         borderTopRightRadius: 25,
         borderBottomRightRadius: 25,
@@ -50,5 +64,6 @@ export const styles = () => ({
         paddingRight:0,
         marginBottom: 12,
         marginTop: 12,
+        textAlign: "left"
     }
 });

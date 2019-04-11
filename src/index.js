@@ -6,7 +6,7 @@ import { Home, Wallpaper, PieChart, Warning, Settings, Input } from "@material-u
 const mainLinks = [
     {label : "Home", icon: Home, selected: true, link:"#home" },
     {label : "Report", icon: Wallpaper, selected: false, link:"#report" },
-    {label : "Report", icon: PieChart, selected: false }
+    {label : "Sine", icon: PieChart, selected: false }
 ];
 
 const bottomLinks = [
@@ -18,4 +18,6 @@ const bottomLinks = [
 render(<SideStrip mainLinks={mainLinks}
                   bottomLinks={bottomLinks}
                   expandMenu={false}
+                  userLabel="Jane Smith"
+                  imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
 />, document.querySelector('#app'));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Avatar, Divider,
+import { Drawer, Avatar, Divider, ClickAwayListener,
     withStyles } from '@material-ui/core';
 import { styles } from "./style";
 import { Person } from "@material-ui/icons";
@@ -26,20 +26,37 @@ export class SideStripComponent extends React.Component {
         }
     }
 
+    onMouseOver() {
+        this.setState({ expandMenuInternal: true });
+    }
+
+    onMouseOut() {
+        this.setState({ expandMenuInternal: false });
+    }
+
     render() {
-        const {classes, mainLinks, bottomLinks, expandMenu } = this.props;
+        const {classes, mainLinks, bottomLinks, expandMenu,
+            userLabel, imageUrl
+        } = this.props;
         const {expandMenuInternal} = this.state;
         const expandMenuCalc = expandMenu || expandMenuInternal;
 
         return  (
+            <ClickAwayListener
+                onClickAway={()=> this.onMouseOut() }
+            >
             <Drawer
-                classes={{paper: classes.root}}
+                classes={{paper: expandMenuCalc ? classes.menuExpand :  classes.menuCollapse}}
                 variant="permanent"
+                onMouseOver={() => this.onMouseOver() }
+
                 open={true}
             >
-                <Avatar src="https://material-ui.com/static/images/avatar/7.jpg" className={classes.avatarMain}>
+                <Avatar src={imageUrl} className={classes.avatarMain}>
                     <Person/>
+
                 </Avatar>
+                {expandMenuCalc && <span className={classes.userLabel}>{userLabel}</span>}
                 <Divider className={classes.divider}/>
                 {mainLinks.map((buttonConfig, index) => (
                     <MenuButton key={index}
@@ -73,6 +90,7 @@ export class SideStripComponent extends React.Component {
                     }
                 </div>
             </Drawer>
+            </ClickAwayListener>
         );
     }
 }

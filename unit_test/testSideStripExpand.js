@@ -22,8 +22,31 @@ describe('<SideStrip /> Expanded', () => {
                                      bottomLinks={bottomLinks}
     />);
 
+    it('drawer expanded class name', () => {
+
+        const mainContainer = wrapper.find("Drawer");
+        const mainClass = mainContainer.props().classes.paper;
+
+        assert.strictEqual(mainClass.indexOf("menuExpand"), 38, "menu expanded");
+    });
+
+    it('drawer expand on event', () => {
+        const wrapper = mount(<SideStrip mainLinks={mainLinks}
+                                         expandMenu={false}
+                                         bottomLinks={bottomLinks}
+        />);
+
+        const mainContainer = wrapper.find("Drawer");
+        const mainClass = mainContainer.props().classes.paper;
+
+
+        assert.strictEqual(mainClass.indexOf("menuCollapse"), 38, "menu expanded");
+    });
+
     it('component expanded labels', () => {
+
         const navButtons = wrapper.find("Button");
+        //.props().className
         const homeLabel = navButtons.first().text().trim();
         const logoutLabel = navButtons.at(4).text().trim();
 
