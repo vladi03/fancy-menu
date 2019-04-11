@@ -17,13 +17,24 @@ describe('<SideStrip />', () => {
         {label : "Settings", icon: Settings, selected: false },
         {label : "Logout", icon: Input, selected: false, link:"#logout" }
     ];
+
+    const wrapper = mount(<SideStrip mainLinks={mainLinks}
+                                     expandMenu={false}
+                                     bottomLinks={bottomLinks}
+    />);
+
     it('component loads', () => {
-        const wrapper = mount(<SideStrip mainLinks={mainLinks}
-                                         expandMenu={false}
-                                         bottomLinks={bottomLinks}
-        />);
+
         const mainContainer = wrapper.find("Drawer");
         const avatar = wrapper.find("Avatar");
+        const navButtons = wrapper.find("Button");
+
+        assert.strictEqual(mainContainer.length, 1, "main container");
+        assert.strictEqual(avatar.length, 1, "avatar");
+        assert.strictEqual(navButtons.length, 5, "nav Buttons");
+    });
+
+    it('component buttons', () => {
         const navButtons = wrapper.find("Button");
         const navLabels = navButtons.first().text().trim();
         const homeHref = navButtons.first().props().href;
@@ -31,9 +42,6 @@ describe('<SideStrip />', () => {
         const logoutHref = navButtons.at(4).props().href;
         const findLogoutIcon = navButtons.at(4).find("svg");
 
-        assert.strictEqual(mainContainer.length, 1, "main container");
-        assert.strictEqual(avatar.length, 1, "avatar");
-        assert.strictEqual(navButtons.length, 5, "nav Buttons");
         assert.strictEqual(findLogoutIcon.length, 1, "find LogoutIcon");
         assert.strictEqual(navLabels, "", "nav Labels");
         assert.strictEqual(homeHref, "#home", "nav Labels");
@@ -41,18 +49,12 @@ describe('<SideStrip />', () => {
         assert.strictEqual(logoutHref, "#logout", "nav Labels");
     });
 
-    it('component expanded', () => {
-        const wrapper = mount(<SideStrip mainLinks={mainLinks}
-                                         expandMenu={true}
-                                         bottomLinks={bottomLinks}
-        />);
-
+    it('button selected', () => {
         const navButtons = wrapper.find("Button");
-        const homeLabel = navButtons.first().text().trim();
-        const logoutLabel = navButtons.at(4).text().trim();
+        const homeClass = navButtons.first().props().className;
+        const settingsClass = navButtons.at(1).props().className;
 
-        assert.strictEqual(navButtons.length, 5, "nav Buttons");
-        assert.strictEqual(homeLabel, "Home", "nav Labels");
-        assert.strictEqual(logoutLabel, "Logout", "nav Labels");
+        assert.strictEqual(homeClass.indexOf("menuButtonActive"), 20, "button active");
+        assert.strictEqual(settingsClass.indexOf("menuButton"), 20, "button  not active");
     });
 });

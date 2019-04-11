@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f4800c-806a-4b73-9f0e-4c5ec6767c05" name="Default" comment="placed menu button components without interaction">
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    <list default="true" id="e6f4800c-806a-4b73-9f0e-4c5ec6767c05" name="Default" comment="unit test : Side String Menu Clicks">
+      <change afterPath="$PROJECT_DIR$/unit_test/testSideStripClicks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unit_test/testSideStripExpand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/sideStrip/SideStrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/sideStrip/SideStrip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/sideStrip/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/sideStrip/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unit_test/testSideStrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/unit_test/testSideStrip.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,8 +22,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+            <state relative-caret-position="220">
+              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -34,11 +31,32 @@
       <file leaf-file-name="testSideStrip.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unit_test/testSideStrip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+            <state relative-caret-position="585">
+              <caret line="56" selection-start-line="56" selection-end-line="57" selection-end-column="90" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testSideStripClicks.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unit_test/testSideStripClicks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testSideStripExpand.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/unit_test/testSideStripExpand.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -58,8 +76,8 @@
       <file leaf-file-name="MenuButton.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="154">
+              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -70,8 +88,11 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            <state relative-caret-position="330">
+              <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+            <state relative-caret-position="242">
+              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -97,24 +118,6 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".setup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unit_test/.setup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -134,6 +137,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -146,10 +152,12 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/unit_test/testSideStrip.js" />
         <option value="$PROJECT_DIR$/src/menus/sideStrip/SideStrip.js" />
         <option value="$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js" />
         <option value="$PROJECT_DIR$/src/menus/sideStrip/style.js" />
+        <option value="$PROJECT_DIR$/unit_test/testSideStrip.js" />
+        <option value="$PROJECT_DIR$/unit_test/testSideStripClicks.js" />
+        <option value="$PROJECT_DIR$/unit_test/testSideStripExpand.js" />
       </list>
     </option>
   </component>
@@ -169,8 +177,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1822" />
-    <option name="y" value="405" />
+    <option name="x" value="1676" />
+    <option name="y" value="346" />
     <option name="width" value="1640" />
     <option name="height" value="1540" />
   </component>
@@ -319,7 +327,7 @@
       <option name="presentableId" value="Default" />
       <updated>1554756518769</updated>
       <workItem from="1554756519982" duration="9037000" />
-      <workItem from="1554826884498" duration="28041000" />
+      <workItem from="1554826884498" duration="35819000" />
     </task>
     <task id="LOCAL-00001" summary="setup shell of the project with react and unit testing">
       <created>1554817934988</created>
@@ -342,55 +350,62 @@
       <option name="project" value="LOCAL" />
       <updated>1554846150144</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add menu navigation and button selection">
+      <created>1554931475395</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554931475395</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test - 2019.04.10 at 17h 02m 57s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 17m 14s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 04m 36s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 28m 29s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 09m 18s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 29m 18s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 12m 19s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 30m 53s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 13m 49s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 31m 19s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 15m 31s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 31m 33s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 16m 44s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 31m 36s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 18m 55s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 32m 40s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 19m 12s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 33m 01s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Test - 2019.04.10 at 17h 19m 29s.xml">
+    <history-entry file="Test - 2019.04.11 at 10h 35m 53s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37078000" />
+    <option name="totallyTimeSpent" value="44856000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1458" y="324" width="1312" height="1232" extended-state="0" />
+    <frame x="1341" y="277" width="1312" height="1232" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22274509" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22274509" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.32940108" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32940108" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32883435" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2431942" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2431942" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32849365" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -413,7 +428,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="setup shell of the project with react and unit testing" />
     <MESSAGE value="placed menu button components without interaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="placed menu button components without interaction" />
+    <MESSAGE value="add menu navigation and button selection" />
+    <MESSAGE value="unit test : Side String Menu Clicks" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit test : Side String Menu Clicks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -504,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -535,23 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unit_test/testSideStrip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/SideStrip.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -562,20 +555,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/MenuButton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="154">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/menus/sideStrip/style.js">
+    <entry file="file://$PROJECT_DIR$/unit_test/testSideStrip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+        <state relative-caret-position="585">
+          <caret line="56" selection-start-line="56" selection-end-line="57" selection-end-column="90" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unit_test/testSideStripClicks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unit_test/testSideStripExpand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
         </state>
       </provider>
     </entry>
