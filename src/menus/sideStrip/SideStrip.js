@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Drawer, Avatar, Divider, ClickAwayListener,
     withStyles } from '@material-ui/core';
 import { styles } from "./style";
@@ -46,7 +47,11 @@ export class SideStripComponent extends React.Component {
                 onClickAway={()=> this.onMouseOut() }
             >
             <Drawer
-                classes={{paper: expandMenuCalc ? classes.menuExpand :  classes.menuCollapse}}
+                classes={{paper: classNames( classes.menuBase, {
+                        [classes.menuExpand]: expandMenuCalc,
+                        [classes.menuCollapse]: !expandMenuCalc,
+                    })
+                }}
                 variant="permanent"
                 onMouseOver={() => this.onMouseOver() }
 

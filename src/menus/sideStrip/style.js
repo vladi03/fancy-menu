@@ -1,19 +1,29 @@
-export const styles = () => ({
+
+export const styles = (theme ) => ({
     userLabel: {
         marginTop: -20,
         marginBottom: 10,
         marginLeft: "auto",
         marginRight: "auto",
     },
-    menuCollapse: {
+    menuBase: {
         backgroundColor: "#626166",
         color: "#fdfbff",
         minWidth : 63
     },
+    menuCollapse: {
+        width : 63,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
     menuExpand: {
-        backgroundColor: "#626166",
-        color: "#fdfbff",
-        width: 150
+        width: 150,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
     },
     divider: {
         backgroundColor: "#919095",
