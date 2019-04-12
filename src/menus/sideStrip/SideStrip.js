@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Drawer, Avatar, Divider, ClickAwayListener,
-    withStyles } from '@material-ui/core';
+    IconButton , withStyles } from '@material-ui/core';
 import { styles } from "./style";
-import { Person } from "@material-ui/icons";
+import { Person, Close } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 
 export class SideStripComponent extends React.Component {
@@ -28,10 +28,12 @@ export class SideStripComponent extends React.Component {
     }
 
     onMouseOver() {
+        // noinspection JSCheckFunctionSignatures
         this.setState({ expandMenuInternal: true });
     }
 
     onMouseOut() {
+        // noinspection JSCheckFunctionSignatures
         this.setState({ expandMenuInternal: false });
     }
 
@@ -46,6 +48,7 @@ export class SideStripComponent extends React.Component {
             <ClickAwayListener
                 onClickAway={()=> this.onMouseOut() }
             >
+<div>
             <Drawer
                 classes={{paper: classNames( classes.menuBase, {
                         [classes.menuExpand]: expandMenuCalc,
@@ -53,16 +56,27 @@ export class SideStripComponent extends React.Component {
                     })
                 }}
                 variant="permanent"
-                onMouseOver={() => this.onMouseOver() }
+
 
                 open={true}
             >
-                <Avatar src={imageUrl} className={classes.avatarMain}>
-                    <Person/>
+            {expandMenuCalc &&
+            <IconButton variant="outlined"
+                        onClick={()=> this.onMouseOut() }
+                        aria-label="Close"
+                        className={classes.closeButton}>
+                <Close fontSize="small" />
+            </IconButton>
+            }
+            <Avatar src={imageUrl} className={classes.avatarMain}>
+                <Person/>
+            </Avatar>
+            {expandMenuCalc && <span className={classes.userLabel}>{userLabel}</span>}
+            <Divider className={classes.divider}/>
 
-                </Avatar>
-                {expandMenuCalc && <span className={classes.userLabel}>{userLabel}</span>}
-                <Divider className={classes.divider}/>
+              <div onMouseOver={() => this.onMouseOver() }
+                   style={{minHeight: 450}}
+              >
                 {mainLinks.map((buttonConfig, index) => (
                     <MenuButton key={index}
                                 config={buttonConfig}
@@ -94,7 +108,9 @@ export class SideStripComponent extends React.Component {
                     ))
                     }
                 </div>
+              </div>
             </Drawer>
+</div>
             </ClickAwayListener>
         );
     }

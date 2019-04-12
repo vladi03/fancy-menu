@@ -11,6 +11,12 @@ export const styles = (theme ) => ({
         color: "#fdfbff",
         minWidth : 63
     },
+    closeButton: {
+        color: "#cfcdd1",
+        margin: 0,
+        position: "absolute",
+        right: 0
+    },
     menuCollapse: {
         width : 63,
         transition: theme.transitions.create('width', {
