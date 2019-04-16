@@ -2,11 +2,18 @@ import './index.css'
 import React from 'react'
 import {render} from 'react-dom'
 import { SideStrip } from './menus/sideStrip/SideStrip';
-import { Home, Wallpaper, PieChart, Warning, Settings, Input } from "@material-ui/icons";
+import { Home, Wallpaper, PieChart, Warning, Settings, Input,
+    Dashboard, DataUsage
+} from "@material-ui/icons";
 const mainLinks = [
     {label : "Home", icon: Home, selected: true, link:"#home" },
     {label : "Report", icon: Wallpaper, selected: false, link:"#report" },
-    {label : "Sine", icon: PieChart, selected: false }
+    {label : "Sine", icon: PieChart, selected: false,
+        subMenu: [
+            { label : "My Dashboard", icon: Dashboard, selected: false, link:"#mydashboard" },
+            { label : "Data Discovery", icon: DataUsage, selected: false, link:"#datausage" },
+        ]
+    }
 ];
 
 const bottomLinks = [

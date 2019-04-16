@@ -54,7 +54,7 @@ describe('<SideStrip />', () => {
         const homeClass = navButtons.first().props().className;
         const settingsClass = navButtons.at(1).props().className;
 
-        assert.strictEqual(homeClass.indexOf("menuButtonActive"), 20, "button active");
+        assert.strictEqual(homeClass.indexOf("menuButtonActive"), 60, "button active");
         assert.strictEqual(settingsClass.indexOf("menuButton"), 20, "button  not active");
     });
 });

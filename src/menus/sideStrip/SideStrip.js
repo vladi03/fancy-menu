@@ -49,6 +49,7 @@ export class SideStripComponent extends React.Component {
                 onClickAway={()=> this.onMouseOut() }
             >
 <div>
+
             <Drawer
                 classes={{paper: classNames( classes.menuBase, {
                         [classes.menuExpand]: expandMenuCalc,
@@ -56,8 +57,6 @@ export class SideStripComponent extends React.Component {
                     })
                 }}
                 variant="permanent"
-
-
                 open={true}
             >
             {expandMenuCalc &&
@@ -68,7 +67,9 @@ export class SideStripComponent extends React.Component {
                 <Close fontSize="small" />
             </IconButton>
             }
-            <Avatar src={imageUrl} className={classes.avatarMain}>
+            <Avatar src={imageUrl}
+                    className={classes.avatarMain}
+                    onMouseOver={() => this.onMouseOver() }>
                 <Person/>
             </Avatar>
             {expandMenuCalc && <span className={classes.userLabel}>{userLabel}</span>}
