@@ -1,5 +1,11 @@
 
+const menuExpandWidth = 150;
+
 export const styles = (theme ) => ({
+    menuSecond: {
+        minWidth : menuExpandWidth,
+        marginLeft: menuExpandWidth
+    },
     userLabel: {
         marginTop: -20,
         marginBottom: 10,
@@ -25,7 +31,7 @@ export const styles = (theme ) => ({
         }),
     },
     menuExpand: {
-        width: 150,
+        width: menuExpandWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

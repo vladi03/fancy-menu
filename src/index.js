@@ -7,19 +7,19 @@ import { Home, Wallpaper, PieChart, Warning, Settings, Input,
 } from "@material-ui/icons";
 const mainLinks = [
     {label : "Home", icon: Home, selected: true, link:"#home" },
-    {label : "Report", icon: Wallpaper, selected: false, link:"#report" },
-    {label : "Sine", icon: PieChart, selected: false,
+    {label : "Report", icon: Wallpaper, link:"#report" },
+    {label : "Admin", icon: PieChart,
         subMenu: [
-            { label : "My Dashboard", icon: Dashboard, selected: false, link:"#mydashboard" },
-            { label : "Data Discovery", icon: DataUsage, selected: false, link:"#datausage" },
+            { label : "My Dashboard", icon: Dashboard, link:"#mydashboard" },
+            { label : "Data Discovery", icon: DataUsage, link:"#datausage" },
         ]
     }
 ];
 
 const bottomLinks = [
-    {label : "Messages", icon: Warning, selected: false },
-    {label : "Settings", icon: Settings, selected: false },
-    {label : "Logout", icon: Input, selected: false, link:"#logout" }
+    {label : "Messages", icon: Warning },
+    {label : "Settings", icon: Settings },
+    {label : "Logout", icon: Input, link:"#logout" }
 ];
 
 render(<SideStrip mainLinks={mainLinks}

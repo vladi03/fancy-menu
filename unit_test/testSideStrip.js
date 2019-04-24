@@ -25,12 +25,12 @@ describe('<SideStrip />', () => {
 
     it('component loads', () => {
 
-        const mainContainer = wrapper.find("Drawer");
+        const drawers = wrapper.find("Drawer");
         const avatar = wrapper.find("Avatar");
         const navButtons = wrapper.find("Button");
 
-        assert.strictEqual(mainContainer.length, 1, "main container");
-        assert.strictEqual(avatar.length, 1, "avatar");
+        assert.strictEqual(drawers.length, 2, "# of drawers");
+        assert.strictEqual(avatar.length, 2, "avatar");
         assert.strictEqual(navButtons.length, 5, "nav Buttons");
     });
 
@@ -54,7 +54,7 @@ describe('<SideStrip />', () => {
         const homeClass = navButtons.first().props().className;
         const settingsClass = navButtons.at(1).props().className;
 
-        assert.strictEqual(homeClass.indexOf("menuButtonActive"), 60, "button active");
+        assert.strictEqual(homeClass.indexOf("menuButtonActive"), 61, "button active");
         assert.strictEqual(settingsClass.indexOf("menuButton"), 20, "button  not active");
     });
 });

@@ -6,11 +6,12 @@ import classNames from "classnames";
 export class MenuButtonComponent extends React.Component {
 
     render() {
-        const { classes, config, showLabel, onClick, selected } = this.props;
+        const { classes, config, showLabel, onClick, selected, onMouseOver } = this.props;
 
         return (
             <Button
                 onClick={selected ? null : () => onClick()}
+                onMouseOver={() => onMouseOver()}
                 style={{paddingLeft: showLabel ? 20 : 0,}}
                 href={config.link}
                 className={classNames(classes.menuButtonShape , {

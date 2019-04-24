@@ -37,10 +37,10 @@ describe('<SideStrip /> Clicks', () => {
         const settingsButtonAfterClass = settingsButtonAfter.props().className;
 
         assert.strictEqual(navButtons.length, 5, "nav Buttons");
-        assert.strictEqual(homeButtonStartClass.indexOf("menuButtonActive"), 60, "button active");
+        assert.strictEqual(homeButtonStartClass.indexOf("menuButtonActive"), 61, "button active");
         assert.strictEqual(settingsButtonStartClass.indexOf("menuButton"), 20, "button  not active");
 
-        assert.strictEqual(settingsButtonAfterClass.indexOf("menuButtonActive"), 60, "button active after click");
+        assert.strictEqual(settingsButtonAfterClass.indexOf("menuButtonActive"), 61, "button active after click");
         assert.strictEqual(homeButtonAfterClass.indexOf("menuButton"), 20, "button not active after click");
     });
 });
