@@ -5,26 +5,43 @@ import { Drawer, Avatar, Divider, ClickAwayListener,
 import { styles } from "./style";
 import { Person, Close } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
+import { SideSecondary } from "./SideSecondary";
 
 export class SideStripComponent extends React.Component {
     constructor() {
         super();
         this.state = {
             selectedInternal: {area: "byConfig", index: -1},
-            expandMenuInternal: false
+            expandMenuInternal: false,
+            secondaryMenuOptions: [],
+            secondaryMenuParent: {}
         }
     }
 
     onClickMenu(area, index, config) {
         const { onClick } = this.props;
+        //test to see if the menu option from parent has a ocClick function
         if(config && config.onClick && typeof(onClick) === "function") {
             onClick(config);
         }
         else {
             const selectedInternal = { area: area, index: index };
+
             // noinspection JSCheckFunctionSignatures
             this.setState({ selectedInternal });
         }
+    }
+
+    onCloseSecondaryMenu() {
+        // noinspection JSCheckFunctionSignatures
+        this.setState({secondaryMenuOptions: [], expandMenuInternal: false});
+    }
+    onMouseOverMenu(config) {
+        const secondaryMenuOptions = config && Array.isArray(config.subMenu) ?
+            config.subMenu : [];
+
+        // noinspection JSCheckFunctionSignatures
+        this.setState({ secondaryMenuOptions, secondaryMenuParent: config });
     }
 
     onMouseOver() {
@@ -32,7 +49,7 @@ export class SideStripComponent extends React.Component {
         this.setState({ expandMenuInternal: true });
     }
 
-    onMouseOut() {
+    onCollapse() {
         // noinspection JSCheckFunctionSignatures
         this.setState({ expandMenuInternal: false });
     }
@@ -41,76 +58,85 @@ export class SideStripComponent extends React.Component {
         const {classes, mainLinks, bottomLinks, expandMenu,
             userLabel, imageUrl
         } = this.props;
-        const {expandMenuInternal} = this.state;
+        const {expandMenuInternal, secondaryMenuOptions, secondaryMenuParent
+        } = this.state;
         const expandMenuCalc = expandMenu || expandMenuInternal;
+        const showSecondaryMenu = expandMenuCalc && secondaryMenuOptions.length > 0;
 
         return  (
             <ClickAwayListener
-                onClickAway={()=> this.onMouseOut() }
+                onClickAway={()=> this.onCollapse() }
             >
-<div>
-            <Drawer
-                classes={{paper: classNames( classes.menuBase, {
-                        [classes.menuExpand]: expandMenuCalc,
-                        [classes.menuCollapse]: !expandMenuCalc,
-                    })
-                }}
-                variant="permanent"
+                <div>
+                    <SideSecondary show={showSecondaryMenu}
+                                   menuParent={secondaryMenuParent}
+                                   onClose={() => this.onCloseSecondaryMenu()}
+                                   menuList={secondaryMenuOptions || [] }/>
 
-
-                open={true}
-            >
-            {expandMenuCalc &&
-            <IconButton variant="outlined"
-                        onClick={()=> this.onMouseOut() }
-                        aria-label="Close"
-                        className={classes.closeButton}>
-                <Close fontSize="small" />
-            </IconButton>
-            }
-            <Avatar src={imageUrl} className={classes.avatarMain}>
-                <Person/>
-            </Avatar>
-            {expandMenuCalc && <span className={classes.userLabel}>{userLabel}</span>}
-            <Divider className={classes.divider}/>
-
-              <div onMouseOver={() => this.onMouseOver() }
-                   style={{minHeight: 450}}
-              >
-                {mainLinks.map((buttonConfig, index) => (
-                    <MenuButton key={index}
-                                config={buttonConfig}
-                                showLabel={expandMenuCalc}
-                                selected={
-                                    (buttonConfig.selected
-                                        && this.state.selectedInternal.area === "byConfig")
-                                ||
-                                    (this.state.selectedInternal.area === "main"
-                                        && this.state.selectedInternal.index === index)}
-                                onClick={() => this.onClickMenu("main", index, buttonConfig)}
-                    />
-                ))
-                }
-
-                <div style={{bottom: 0, position: "absolute"}}>
-                    {bottomLinks.map((buttonConfig, index) => (
-                        <MenuButton key={index}
-                                    config={buttonConfig}
-                                    showLabel={expandMenuCalc}
-                                    selected={
-                                        (buttonConfig.selected
-                                            && this.state.selectedInternal.area === "byConfig")
-                                        ||
-                                        (this.state.selectedInternal.area === "bottom"
-                                            && this.state.selectedInternal.index === index)}
-                                    onClick={() => this.onClickMenu("bottom", index, buttonConfig)}
-                        />
-                    ))
+                    <Drawer
+                        classes={{paper: classNames( classes.menuBase, {
+                                [classes.menuExpand]: expandMenuCalc,
+                                [classes.menuCollapse]: !expandMenuCalc,
+                            })
+                        }}
+                        variant="permanent"
+                        open={true}
+                    >
+                    {expandMenuCalc &&
+                    <IconButton variant="outlined"
+                                onClick={()=> this.onCollapse() }
+                                aria-label="Close"
+                                className={classes.closeButton}>
+                        <Close fontSize="small" />
+                    </IconButton>
                     }
+                    <Avatar src={imageUrl}
+                            className={classes.avatarMain}
+                            onMouseOver={() => this.onMouseOver() }>
+                        <Person/>
+                    </Avatar>
+                    {expandMenuCalc && <p className={classes.userLabel}>{userLabel}</p>}
+                    <Divider className={classes.divider}/>
+
+                      <div onMouseOver={() => this.onMouseOver() }
+                           style={{minHeight: 450}}
+                      >
+                        {mainLinks.map((buttonConfig, index) => (
+                            <MenuButton key={index}
+                                        config={buttonConfig}
+                                        showLabel={expandMenuCalc}
+                                        selected={
+                                            (buttonConfig.selected
+                                                && this.state.selectedInternal.area === "byConfig")
+                                        ||
+                                            (this.state.selectedInternal.area === "main"
+                                                && this.state.selectedInternal.index === index)}
+                                        onClick={() => this.onClickMenu("main", index, buttonConfig)}
+                                        onMouseOver={() => this.onMouseOverMenu(buttonConfig) }
+                            />
+                        ))
+                        }
+
+                        <div style={{bottom: 0, position: "absolute"}}>
+                            {bottomLinks.map((buttonConfig, index) => (
+                                <MenuButton key={index}
+                                            config={buttonConfig}
+                                            showLabel={expandMenuCalc}
+                                            selected={
+                                                (buttonConfig.selected
+                                                    && this.state.selectedInternal.area === "byConfig")
+                                                ||
+                                                (this.state.selectedInternal.area === "bottom"
+                                                    && this.state.selectedInternal.index === index)}
+                                            onClick={() => this.onClickMenu("bottom", index, buttonConfig)}
+                                            onMouseOver={() => this.onMouseOverMenu(buttonConfig) }
+                                />
+                            ))
+                            }
+                        </div>
+                      </div>
+                    </Drawer>
                 </div>
-              </div>
-            </Drawer>
-</div>
             </ClickAwayListener>
         );
     }

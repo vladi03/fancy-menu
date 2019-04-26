@@ -1,5 +1,11 @@
 
+const menuExpandWidth = 150;
+
 export const styles = (theme ) => ({
+    menuSecond: {
+        minWidth : menuExpandWidth,
+        marginLeft: menuExpandWidth
+    },
     userLabel: {
         marginTop: -20,
         marginBottom: 10,
@@ -25,7 +31,7 @@ export const styles = (theme ) => ({
         }),
     },
     menuExpand: {
-        width: 150,
+        width: menuExpandWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -55,14 +61,24 @@ export const styles = (theme ) => ({
         marginLeft: 5,
         width: 100
     },
+    menuButtonShape: {
+        minWidth: 0,
+        width: "92%",
+        paddingRight:0,
+        borderTopRightRadius: 25,
+        borderBottomRightRadius: 25,
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+        textAlign: "left"
+    },
     menuButton: {
         color: "#cfcdd1",
-        width: "90%",
-        minWidth: 0,
-        paddingRight:0,
         marginBottom: 7,
         marginTop: 7,
-        textAlign: "left"
+        "&:hover": {
+            //you want this to be the same as the backgroundColor above
+            backgroundColor: "#838285"
+        },
     },
     menuButtonActive: {
         color: "#6ea625",
@@ -71,15 +87,7 @@ export const styles = (theme ) => ({
             //you want this to be the same as the backgroundColor above
             backgroundColor: "#fdfbff"
         },
-        width: "90%",
-        minWidth: 0,
-        borderTopRightRadius: 25,
-        borderBottomRightRadius: 25,
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-        paddingRight:0,
         marginBottom: 12,
-        marginTop: 12,
-        textAlign: "left"
+        marginTop: 12
     }
 });
