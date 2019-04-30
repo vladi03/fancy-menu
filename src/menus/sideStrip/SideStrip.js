@@ -14,8 +14,8 @@ export class SideStripComponent extends React.Component {
             selectedInternal: {area: "byConfig", index: -1},
             expandMenuInternal: false,
             secondaryMenuOptions: [],
-            secondaryMenuParent: {}
-        }
+            secondaryMenuParent: null
+        };
     }
 
     onClickMenu(area, index, config) {
@@ -68,11 +68,12 @@ export class SideStripComponent extends React.Component {
                 onClickAway={()=> this.onCollapse() }
             >
                 <div>
+                    {secondaryMenuParent &&
                     <SideSecondary show={showSecondaryMenu}
-                                   menuParent={secondaryMenuParent}
-                                   onClose={() => this.onCloseSecondaryMenu()}
-                                   menuList={secondaryMenuOptions || [] }/>
-
+                       menuParent={secondaryMenuParent}
+                       onClose={() => this.onCloseSecondaryMenu()}
+                       menuList={secondaryMenuOptions || []}/>
+                    }
                     <Drawer
                         classes={{paper: classNames( classes.menuBase, {
                                 [classes.menuExpand]: expandMenuCalc,

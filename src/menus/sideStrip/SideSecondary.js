@@ -5,6 +5,7 @@ import { styles } from "./style";
 
 
 export const SideSecondaryComponent = ({classes, show, menuParent, menuList, onClose}) => {
+
     return (
         <Drawer
             classes={{paper: classes.menuSecond  }}

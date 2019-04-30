@@ -25,10 +25,10 @@ describe('<SideStrip /> Expanded', () => {
     it('drawer expanded class name', () => {
 
         const mainContainer = wrapper.find("Drawer");
-        const mainClass = mainContainer.at(1).props().classes.paper;
+        const mainClass = mainContainer.at(0).props().classes.paper;
 
         assert.strictEqual(mainClass.indexOf("menuCollapse"), -1, "menu expanded");
-        assert.strictEqual(mainClass.indexOf("menuExpand"), 71, "menu expanded");
+        assert.ok(mainClass.indexOf("menuExpand")> 60, "menu expanded");
     });
 
     it('drawer expand on event', () => {
@@ -38,10 +38,10 @@ describe('<SideStrip /> Expanded', () => {
         />);
 
         const mainContainer = wrapper.find("Drawer");
-        const mainClass = mainContainer.at(1).props().classes.paper;
+        const mainClass = mainContainer.at(0).props().classes.paper;
 
         assert.strictEqual(mainClass.indexOf("menuExpand"), -1, "menu expanded");
-        assert.strictEqual(mainClass.indexOf("menuCollapse"), 71, "menu expanded");
+        assert.ok(mainClass.indexOf("menuCollapse")> 60, "menu expanded");
     });
 
     it('component expanded labels', () => {
