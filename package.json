@@ -4,7 +4,7 @@
   "description": "Navigation Menus based on React JS and Material UI",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./unit_test ./unit_test/.setup.js --require @babel/register --recursive --ui bdd",
+    "test": "mocha ./unit_test/.setup.js --require @babel/register --recursive ./unit_test",
     "start": "nwb serve-react-app"
   },
   "repository": {
