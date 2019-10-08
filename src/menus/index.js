@@ -1,5 +1,5 @@
 import React from "react";
-import { SideStrip } from './sideStrip/SideStrip';
+import { SideStrip as CompSideStrip } from './sideStrip/SideStrip';
 
 import { Home, Wallpaper, PieChart, Warning, Settings, Input,
     Dashboard, DataUsage
@@ -22,9 +22,11 @@ const bottomLinks = [
 ];
 
 export const DemoMenu = ()=> (
-    <SideStrip mainLinks={mainLinks}
+    <CompSideStrip mainLinks={mainLinks}
                  bottomLinks={bottomLinks}
                  expandMenu={false}
                  userLabel="Jane Smith"
                  imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
 />);
+
+export const SideStrip = CompSideStrip;

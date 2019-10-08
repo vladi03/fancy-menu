@@ -1,0 +1,14 @@
+# dotenv environment variables file
+.env
+.git/
+.idea/
+# Logs
+logs
+
+# Dependency directories
+node_modules/
+
+.babelrc
+unit_test/
+src/
+dist/
