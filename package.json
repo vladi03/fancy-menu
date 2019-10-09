@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/vladi03/fancy-menu/issues"
   },
-  "homepage": "https://github.com/vladi03/fancy-menu#readme",
+  "homepage": "http://vladi03.github.io/fancy-menu/",
   "devDependencies": {
     "@babel/cli": "^7.6.3",
     "@babel/core": "^7.6.3",
