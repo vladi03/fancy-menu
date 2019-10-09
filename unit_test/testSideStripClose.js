@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import { SideStrip } from "../src/menus/sideStrip/SideStrip";
 import {Home, Input, Settings, Wallpaper, Warning} from "@material-ui/icons/index";
 
-describe('<SideStrip /> Clicks', () => {
+describe('<SideStrip /> Close', () => {
     const mainLinks = [
         {label : "Home", icon: Home, selected: true, link:"#home"  },
         {label : "Report", icon: Wallpaper, selected: false  }
