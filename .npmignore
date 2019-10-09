@@ -2,6 +2,7 @@
 .env
 .git/
 .idea/
+dist/
 # Logs
 logs
 
