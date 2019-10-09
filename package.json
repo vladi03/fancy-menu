@@ -12,7 +12,8 @@
     "version:patch": "npm version patch",
     "test": "mocha ./unit_test/.setup.js --require @babel/register --recursive ./unit_test",
     "start": "nwb serve-react-app",
-    "prepublish": "npm-run-all build:lib version:patch"
+    "prepublish": "npm-run-all build:lib version:patch",
+    "deploy:docs": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "cross-env": "^6.0.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "gh-pages": "^2.1.1",
     "jsdom": "14.0.0",
     "jsdom-global": "3.0.2",
     "mocha": "^6.2.1",
