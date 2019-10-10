@@ -1,9 +1,9 @@
 import React from "react";
 import { SideStrip as CompSideStrip } from './sideStrip/SideStrip';
-
 import { Home, Wallpaper, PieChart, Warning, Settings, Input,
     Dashboard, DataUsage
 } from "@material-ui/icons";
+
 const mainLinks = [
     {label : "Home", icon: Home, selected: true, link:"#home" },
     {label : "Report", icon: Wallpaper, link:"#report" },
