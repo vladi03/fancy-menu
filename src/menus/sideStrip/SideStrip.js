@@ -118,7 +118,7 @@ export class SideStripComponent extends React.Component {
                         ))
                         }
 
-                        <div style={{bottom: 0, position: "absolute"}}>
+                        <div style={{bottom: 0, position: "absolute", width:"100%"}}>
                             {bottomLinks.map((buttonConfig, index) => (
                                 <MenuButton key={index}
                                             config={buttonConfig}
