@@ -31,3 +31,12 @@ export const DemoMenu = ()=> (
                  imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
 />);
 ```
+# Deploy
+First build the project for production environment
+```
+npm run build
+```
+Second
+```
+npm publish
+```
