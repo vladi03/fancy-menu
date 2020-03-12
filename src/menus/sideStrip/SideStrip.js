@@ -12,6 +12,7 @@ export class SideStripComponent extends React.Component {
         super();
         this.state = {
             selectedInternal: {area: "byConfig", index: -1},
+            disableMouseOver: false,
             expandMenuInternal: false,
             secondaryMenuOptions: [],
             secondaryMenuParent: null
@@ -28,7 +29,9 @@ export class SideStripComponent extends React.Component {
             const selectedInternal = { area: area, index: index };
 
             // noinspection JSCheckFunctionSignatures
-            this.setState({ selectedInternal });
+            this.setState({ selectedInternal, expandMenuInternal: false, disableMouseOver: true });
+            // noinspection JSCheckFunctionSignatures
+            setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
         }
     }
 
@@ -45,8 +48,12 @@ export class SideStripComponent extends React.Component {
     }
 
     onMouseOver() {
-        // noinspection JSCheckFunctionSignatures
-        this.setState({ expandMenuInternal: true });
+        const {disableMouseOver} = this.state;
+
+        if(disableMouseOver === false) {
+            // noinspection JSCheckFunctionSignatures
+            this.setState({expandMenuInternal: true});
+        }
     }
 
     onCollapse() {
