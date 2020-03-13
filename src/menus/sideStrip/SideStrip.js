@@ -7,6 +7,8 @@ import { Person, Close } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 import { SideSecondary } from "./SideSecondary";
 
+let timerRef = null;
+
 export class SideStripComponent extends React.Component {
     constructor() {
         super();
@@ -31,8 +33,12 @@ export class SideStripComponent extends React.Component {
             // noinspection JSCheckFunctionSignatures
             this.setState({ selectedInternal, expandMenuInternal: false, disableMouseOver: true });
             // noinspection JSCheckFunctionSignatures
-            setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
+            timerRef = setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
         }
+    }
+
+    componentWillUnmount() {
+        clearTimeout(timerRef);
     }
 
     onCloseSecondaryMenu() {
