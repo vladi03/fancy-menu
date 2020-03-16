@@ -7,11 +7,14 @@ import { Person, Close } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 import { SideSecondary } from "./SideSecondary";
 
+let timerRef = null;
+
 export class SideStripComponent extends React.Component {
     constructor() {
         super();
         this.state = {
             selectedInternal: {area: "byConfig", index: -1},
+            disableMouseOver: false,
             expandMenuInternal: false,
             secondaryMenuOptions: [],
             secondaryMenuParent: null
@@ -28,8 +31,14 @@ export class SideStripComponent extends React.Component {
             const selectedInternal = { area: area, index: index };
 
             // noinspection JSCheckFunctionSignatures
-            this.setState({ selectedInternal });
+            this.setState({ selectedInternal, expandMenuInternal: false, disableMouseOver: true });
+            // noinspection JSCheckFunctionSignatures
+            timerRef = setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
         }
+    }
+
+    componentWillUnmount() {
+        clearTimeout(timerRef);
     }
 
     onCloseSecondaryMenu() {
@@ -45,8 +54,12 @@ export class SideStripComponent extends React.Component {
     }
 
     onMouseOver() {
-        // noinspection JSCheckFunctionSignatures
-        this.setState({ expandMenuInternal: true });
+        const {disableMouseOver} = this.state;
+
+        if(disableMouseOver === false) {
+            // noinspection JSCheckFunctionSignatures
+            this.setState({expandMenuInternal: true});
+        }
     }
 
     onCollapse() {
@@ -118,7 +131,7 @@ export class SideStripComponent extends React.Component {
                         ))
                         }
 
-                        <div style={{bottom: 0, position: "absolute"}}>
+                        <div style={{bottom: 0, position: "absolute", width:"100%"}}>
                             {bottomLinks.map((buttonConfig, index) => (
                                 <MenuButton key={index}
                                             config={buttonConfig}

@@ -30,7 +30,7 @@ export const SideSecondaryComponent = ({classes, show, menuParent, menuList, onC
                     <ListItemIcon>
                         <menuItem.icon />
                     </ListItemIcon>
-                    <ListItemText inset primary={menuItem.label} />
+                    <ListItemText primary={menuItem.label} />
                 </ListItem>
             ))}
             </List>
