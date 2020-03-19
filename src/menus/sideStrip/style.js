@@ -91,6 +91,12 @@ export const styles = (theme ) => {
             },
             marginBottom: 12,
             marginTop: 12
+        },
+        littleRightBorder : {
+            //backgroundColor: "beige",
+            width: 150,
+            height: "100%",
+            position: "absolute"
         }
     });
 };

@@ -45,7 +45,8 @@ export class SideStripComponent extends React.Component {
         // noinspection JSCheckFunctionSignatures
         this.setState({secondaryMenuOptions: [], expandMenuInternal: false});
     }
-    onMouseOverMenu(config) {
+    onMouseOverMenu(event, config) {
+        //event.stopPropagation();
         const secondaryMenuOptions = config && Array.isArray(config.subMenu) ?
             config.subMenu : [];
 
@@ -60,6 +61,11 @@ export class SideStripComponent extends React.Component {
             // noinspection JSCheckFunctionSignatures
             this.setState({expandMenuInternal: true});
         }
+    }
+
+    onMouseOut() {
+        // noinspection JSCheckFunctionSignatures
+        this.setState({expandMenuInternal: false});
     }
 
     onCollapse() {
@@ -80,7 +86,10 @@ export class SideStripComponent extends React.Component {
             <ClickAwayListener
                 onClickAway={()=> this.onCollapse() }
             >
-                <div>
+                <div
+                    className={expandMenuInternal && classes.littleRightBorder || ""}
+                    onMouseLeave={() => this.onMouseOut() }
+                >
                     {secondaryMenuParent &&
                     <SideSecondary show={showSecondaryMenu}
                        menuParent={secondaryMenuParent}
@@ -113,6 +122,7 @@ export class SideStripComponent extends React.Component {
                     <Divider className={classes.divider}/>
 
                       <div onMouseOver={() => this.onMouseOver() }
+
                            style={{minHeight: 450}}
                       >
                         {mainLinks.map((buttonConfig, index) => (
@@ -126,7 +136,7 @@ export class SideStripComponent extends React.Component {
                                             (this.state.selectedInternal.area === "main"
                                                 && this.state.selectedInternal.index === index)}
                                         onClick={() => this.onClickMenu("main", index, buttonConfig)}
-                                        onMouseOver={() => this.onMouseOverMenu(buttonConfig) }
+                                        onMouseOver={(event) => this.onMouseOverMenu(event, buttonConfig) }
                             />
                         ))
                         }
