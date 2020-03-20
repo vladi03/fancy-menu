@@ -95,7 +95,7 @@ export const styles = (theme ) => {
         littleRightBorder : {
             //backgroundColor: "beige",
             width: 150,
-            height: "100%",
+            height: "calc(100% - 10px)",
             position: "absolute"
         }
     });
