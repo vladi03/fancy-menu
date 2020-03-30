@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState, Fragment} from "react";
 import { SideStrip as CompSideStrip } from './sideStrip/SideStrip';
+import {IconButton} from "@material-ui/core";
 import { Home, Wallpaper, PieChart, Warning, Settings, Input,
-    Dashboard, DataUsage
+    Dashboard, DataUsage, Menu
 } from "@material-ui/icons";
 
 const mainLinks = [
@@ -21,12 +22,25 @@ const bottomLinks = [
     {label : "Logout", icon: Input, link:"#logout" }
 ];
 
-export const DemoMenu = ()=> (
-    <CompSideStrip mainLinks={mainLinks}
-                 bottomLinks={bottomLinks}
-                 expandMenu={false}
-                 userLabel="Jane Smith"
-                 imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
-/>);
+export const DemoMenu = ()=> {
+    const [openMenu, setOpenMenu] = useState(false);
+    console.log(openMenu);
+    return (
+        <Fragment>
+            <IconButton
+                onClick={() => setOpenMenu(true)}
+            >
+                <Menu/>
+            </IconButton>
+            <CompSideStrip mainLinks={mainLinks}
+                           bottomLinks={bottomLinks}
+                           onMenuClose={() => setOpenMenu(false)}
 
+                           userLabel="Jane Smith"
+                           imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
+            />
+        </Fragment>);
+};
+//this is used by subscriber
+// noinspection JSUnusedGlobalSymbols
 export const SideStrip = CompSideStrip;
