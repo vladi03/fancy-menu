@@ -24,18 +24,28 @@ const bottomLinks = [
 
 export const DemoMenu = ()=> {
     const [openMenu, setOpenMenu] = useState(false);
-    console.log(openMenu);
+    const [pauseMenuClose, setPauseMenuClose] = useState(false);
     return (
         <Fragment>
             <IconButton
-                onClick={() => setOpenMenu(true)}
+                onClick={() => {
+                    setOpenMenu(true);
+                    setPauseMenuClose(true);
+                    setTimeout(()=> {
+                        setPauseMenuClose(false);
+                    }, 1000);
+                }}
             >
                 <Menu/>
             </IconButton>
             <CompSideStrip mainLinks={mainLinks}
                            bottomLinks={bottomLinks}
-                           onMenuClose={() => setOpenMenu(false)}
-
+                           onMenuClose={() => {
+                               setOpenMenu(false);
+                               if(!pauseMenuClose)
+                                   setOpenMenu(false);
+                           }}
+                           expandMenu={openMenu}
                            userLabel="Jane Smith"
                            imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
             />
