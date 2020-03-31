@@ -1,8 +1,7 @@
-import React, {useState, Fragment} from "react";
+import React, {Fragment} from "react";
 import { SideStrip as CompSideStrip } from './sideStrip/SideStrip';
-import {IconButton} from "@material-ui/core";
 import { Home, Wallpaper, PieChart, Warning, Settings, Input,
-    Dashboard, DataUsage, Menu
+    Dashboard, DataUsage
 } from "@material-ui/icons";
 
 const mainLinks = [
@@ -23,31 +22,16 @@ const bottomLinks = [
 ];
 
 export const DemoMenu = ()=> {
-    const [openMenu, setOpenMenu] = useState(false);
-    const [pauseMenuClose, setPauseMenuClose] = useState(false);
+
     return (
         <Fragment>
-            <IconButton
-                onClick={() => {
-                    setOpenMenu(true);
-                    setPauseMenuClose(true);
-                    setTimeout(()=> {
-                        setPauseMenuClose(false);
-                    }, 1000);
-                }}
-            >
-                <Menu/>
-            </IconButton>
             <CompSideStrip mainLinks={mainLinks}
                            bottomLinks={bottomLinks}
-                           onMenuClose={() => {
-                               if(!pauseMenuClose)
-                                   setOpenMenu(false);
-                           }}
-                           expandMenu={openMenu}
+                           expandMenu={false}
                            userLabel="Jane Smith"
                            imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
             />
+            <div style={{marginLeft: 86, marginTop: 20}}>Hello World ! This is a working example os fancy menu.</div>
         </Fragment>);
 };
 //this is used by subscriber

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Drawer, Avatar, Divider, ClickAwayListener,
     IconButton , withStyles } from '@material-ui/core';
 import { styles } from "./style";
-import { Person, Close } from "@material-ui/icons";
+import { Person, Close, Menu } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 import { SideSecondary } from "./SideSecondary";
 
@@ -34,7 +34,8 @@ export class SideStripComponent extends React.Component {
             // noinspection JSCheckFunctionSignatures
             this.handleCloseMenu({ selectedInternal, disableMouseOver: true });
             // noinspection JSCheckFunctionSignatures
-            timerRef = setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
+            timerRef = setTimeout(()=>
+                this.setState({disableMouseOver: false}), 1000 );
         }
     }
 
@@ -176,6 +177,16 @@ export class SideStripComponent extends React.Component {
                             </div>
                         </div>
                     </Drawer>
+                    }
+                    {hideMenu && !expandMenuCalc &&
+                        <IconButton
+                            className={classes.menuButtonExpandMobile}
+                            onClick={() => {
+                                this.onMouseOver();
+                            }}
+                        >
+                            <Menu/>
+                        </IconButton>
                     }
                 </div>
             </ClickAwayListener>

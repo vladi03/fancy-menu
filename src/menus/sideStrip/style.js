@@ -59,6 +59,10 @@ export const styles = (theme ) => {
             width: 60,
             height: 60,
         },
+        menuButtonExpandMobile: {
+            position: "fixed",
+            top:0,
+        },
         menuButtonLabel: {
             marginLeft: 5,
             width: 100
