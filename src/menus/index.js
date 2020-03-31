@@ -41,7 +41,6 @@ export const DemoMenu = ()=> {
             <CompSideStrip mainLinks={mainLinks}
                            bottomLinks={bottomLinks}
                            onMenuClose={() => {
-                               setOpenMenu(false);
                                if(!pauseMenuClose)
                                    setOpenMenu(false);
                            }}
