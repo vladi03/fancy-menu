@@ -33,7 +33,7 @@ export const DemoMenu = ()=> {
                     setPauseMenuClose(true);
                     setTimeout(()=> {
                         setPauseMenuClose(false);
-                    }, 5000);
+                    }, 1000);
                 }}
             >
                 <Menu/>
