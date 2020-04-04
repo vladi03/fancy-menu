@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/index.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"app.2d931803.css","sourcesContent":["html, body, #app {\r\n  height: 100%;\r\n  position: fixed;\r\n}\r\nbody {\r\n  font-family: sans-serif;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n"],"sourceRoot":""}

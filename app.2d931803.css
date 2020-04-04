@@ -1,5 +1,6 @@
 html, body, #app {
   height: 100%;
+  position: fixed;
 }
 body {
   font-family: sans-serif;
@@ -8,4 +9,4 @@ body {
 }
 
 
-/*# sourceMappingURL=app.e81b8359.css.map*/
+/*# sourceMappingURL=app.2d931803.css.map*/
