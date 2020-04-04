@@ -61,6 +61,7 @@ export class SideStripComponent extends React.Component {
 
     componentWillUnmount() {
         clearTimeout(timerRef);
+        window.removeEventListener("resize", this.resize);
     }
 
     onCloseSecondaryMenu() {
