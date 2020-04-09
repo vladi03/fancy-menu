@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { SideStrip as CompSideStrip } from './sideStrip/SideStrip';
 import { Home, Wallpaper, PieChart, Warning, Settings, Input,
     Dashboard, DataUsage
@@ -20,16 +20,20 @@ const bottomLinks = [
     {label : "Settings", icon: Settings },
     {label : "Logout", icon: Input, link:"#logout" }
 ];
-//https://avatarfiles.alphacoders.com/115/115265.png
-//https://material-ui.com/static/images/avatar/7.jpg
-export const DemoMenu = ()=> (
-    <CompSideStrip mainLinks={mainLinks}
-                   bottomLinks={bottomLinks}
-                   expandMenu={false}
-                   userLabel="Jane Smith"
-                   avatarInitials="VM"
-                   imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
 
-/>);
+export const DemoMenu = ()=> {
 
+    return (
+        <Fragment>
+            <CompSideStrip mainLinks={mainLinks}
+                           bottomLinks={bottomLinks}
+                           expandMenu={false}
+                           userLabel="Jane Smith"
+                           imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
+            />
+            <div style={{marginLeft: 86, marginTop: 20}}>Hello World ! This is a working example os fancy menu.</div>
+        </Fragment>);
+};
+//this is used by subscriber
+// noinspection JSUnusedGlobalSymbols
 export const SideStrip = CompSideStrip;

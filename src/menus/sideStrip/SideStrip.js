@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Drawer, Avatar, Divider, ClickAwayListener,
     IconButton , withStyles } from '@material-ui/core';
 import { styles } from "./style";
-import { Person, Close } from "@material-ui/icons";
+import { Person, Close, Menu } from "@material-ui/icons";
 import { MenuButton } from "./MenuButton";
 import { SideSecondary } from "./SideSecondary";
 
@@ -14,6 +14,8 @@ export class SideStripComponent extends React.Component {
         super();
         this.state = {
             selectedInternal: {area: "byConfig", index: -1},
+            isMobile: false,
+            hideMenu: false,
             disableMouseOver: false,
             expandMenuInternal: false,
             secondaryMenuOptions: [],
@@ -29,21 +31,42 @@ export class SideStripComponent extends React.Component {
         }
         else {
             const selectedInternal = { area: area, index: index };
-
             // noinspection JSCheckFunctionSignatures
-            this.setState({ selectedInternal, expandMenuInternal: false, disableMouseOver: true });
+            this.handleCloseMenu({ selectedInternal, disableMouseOver: true });
             // noinspection JSCheckFunctionSignatures
-            timerRef = setTimeout(()=> this.setState({disableMouseOver: false}), 1000 );
+            timerRef = setTimeout(()=>
+                this.setState({disableMouseOver: false}), 1000 );
         }
+    }
+
+    handleCloseMenu(extraState) {
+        const { isMobile } = this.state;
+        const { onMenuClose } = this.props;
+        if(onMenuClose) onMenuClose();
+        // noinspection JSCheckFunctionSignatures
+        this.setState({...extraState, expandMenuInternal: false, hideMenu: isMobile });
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.resize.bind(this));
+        this.resize();
+    }
+
+    resize() {
+        const { expandMenu } = this.props;
+        const isMobile = expandMenu !== undefined && window.innerWidth <= 760;
+        // noinspection JSCheckFunctionSignatures
+        this.setState({isMobile, hideMenu: isMobile});
     }
 
     componentWillUnmount() {
         clearTimeout(timerRef);
+        window.removeEventListener("resize", this.resize);
     }
 
     onCloseSecondaryMenu() {
         // noinspection JSCheckFunctionSignatures
-        this.setState({secondaryMenuOptions: [], expandMenuInternal: false});
+        this.handleCloseMenu({secondaryMenuOptions: []});
     }
     onMouseOverMenu(event, config) {
         //event.stopPropagation();
@@ -63,32 +86,25 @@ export class SideStripComponent extends React.Component {
         }
     }
 
-    onMouseOut() {
-        // noinspection JSCheckFunctionSignatures
-        this.setState({expandMenuInternal: false});
-    }
-
-    onCollapse() {
-        // noinspection JSCheckFunctionSignatures
-        this.setState({ expandMenuInternal: false });
-    }
 
     render() {
         const {classes, mainLinks, bottomLinks, expandMenu,
-            userLabel, imageUrl, avatarInitials
+            userLabel, imageUrl
         } = this.props;
-        const {expandMenuInternal, secondaryMenuOptions, secondaryMenuParent
+        const {expandMenuInternal, secondaryMenuOptions, secondaryMenuParent,
+            hideMenu
         } = this.state;
+
         const expandMenuCalc = expandMenu || expandMenuInternal;
         const showSecondaryMenu = expandMenuCalc && secondaryMenuOptions.length > 0;
 
         return  (
             <ClickAwayListener
-                onClickAway={()=> this.onCollapse() }
+                onClickAway={()=> this.handleCloseMenu() }
             >
                 <div
                     className={expandMenuInternal && classes.littleRightBorder || ""}
-                    onMouseLeave={() => this.onMouseOut() }
+                    onMouseLeave={() => this.handleCloseMenu() }
                 >
                     {secondaryMenuParent &&
                     <SideSecondary show={showSecondaryMenu}
@@ -96,8 +112,10 @@ export class SideStripComponent extends React.Component {
                        onClose={() => this.onCloseSecondaryMenu()}
                        menuList={secondaryMenuOptions || []}/>
                     }
+                    {(!hideMenu || expandMenuCalc )&&
                     <Drawer
-                        classes={{paper: classNames( classes.menuBase, {
+                        classes={{
+                            paper: classNames(classes.menuBase, {
                                 [classes.menuExpand]: expandMenuCalc,
                                 [classes.menuCollapse]: !expandMenuCalc,
                             })
@@ -105,44 +123,27 @@ export class SideStripComponent extends React.Component {
                         variant="permanent"
                         open={true}
                     >
-                    {expandMenuCalc &&
-                    <IconButton variant="outlined"
-                                onClick={()=> this.onCollapse() }
-                                aria-label="Close"
-                                className={classes.closeButton}>
-                        <Close fontSize="small" />
-                    </IconButton>
-                    }
-                    <Avatar src={imageUrl}
-                            className={classes.avatarMain}
-                            onMouseOver={() => this.onMouseOver() }>
-                        {avatarInitials || <Person/>}
-                    </Avatar>
-                    {expandMenuCalc && <p className={classes.userLabel}>{userLabel}</p>}
-                    <Divider className={classes.divider}/>
-
-                      <div onMouseOver={() => this.onMouseOver() }
-
-                           style={{minHeight: 450}}
-                      >
-                        {mainLinks.map((buttonConfig, index) => (
-                            <MenuButton key={index}
-                                        config={buttonConfig}
-                                        showLabel={expandMenuCalc}
-                                        selected={
-                                            (buttonConfig.selected
-                                                && this.state.selectedInternal.area === "byConfig")
-                                        ||
-                                            (this.state.selectedInternal.area === "main"
-                                                && this.state.selectedInternal.index === index)}
-                                        onClick={() => this.onClickMenu("main", index, buttonConfig)}
-                                        onMouseOver={(event) => this.onMouseOverMenu(event, buttonConfig) }
-                            />
-                        ))
+                        {expandMenuCalc &&
+                        <IconButton variant="outlined"
+                                    onClick={() => this.handleCloseMenu()}
+                                    aria-label="Close"
+                                    className={classes.closeButton}>
+                            <Close fontSize="small"/>
+                        </IconButton>
                         }
+                        <Avatar src={imageUrl}
+                                className={classes.avatarMain}
+                                onMouseOver={() => this.onMouseOver()}>
+                            <Person/>
+                        </Avatar>
+                        {expandMenuCalc && <p className={classes.userLabel}>{userLabel}</p>}
+                        <Divider className={classes.divider}/>
 
-                        <div style={{bottom: 0, position: "absolute", width:"100%"}}>
-                            {bottomLinks.map((buttonConfig, index) => (
+                        <div onMouseOver={() => this.onMouseOver()}
+
+                             style={{minHeight: 450}}
+                        >
+                            {mainLinks.map((buttonConfig, index) => (
                                 <MenuButton key={index}
                                             config={buttonConfig}
                                             showLabel={expandMenuCalc}
@@ -150,16 +151,44 @@ export class SideStripComponent extends React.Component {
                                                 (buttonConfig.selected
                                                     && this.state.selectedInternal.area === "byConfig")
                                                 ||
-                                                (this.state.selectedInternal.area === "bottom"
+                                                (this.state.selectedInternal.area === "main"
                                                     && this.state.selectedInternal.index === index)}
-                                            onClick={() => this.onClickMenu("bottom", index, buttonConfig)}
-                                            onMouseOver={() => this.onMouseOverMenu(buttonConfig) }
+                                            onClick={() => this.onClickMenu("main", index, buttonConfig)}
+                                            onMouseOver={(event) => this.onMouseOverMenu(event, buttonConfig)}
                                 />
                             ))
                             }
+
+                            <div style={{bottom: 0, position: "absolute", width: "100%"}}>
+                                {bottomLinks.map((buttonConfig, index) => (
+                                    <MenuButton key={index}
+                                                config={buttonConfig}
+                                                showLabel={expandMenuCalc}
+                                                selected={
+                                                    (buttonConfig.selected
+                                                        && this.state.selectedInternal.area === "byConfig")
+                                                    ||
+                                                    (this.state.selectedInternal.area === "bottom"
+                                                        && this.state.selectedInternal.index === index)}
+                                                onClick={() => this.onClickMenu("bottom", index, buttonConfig)}
+                                                onMouseOver={() => this.onMouseOverMenu(buttonConfig)}
+                                    />
+                                ))
+                                }
+                            </div>
                         </div>
-                      </div>
                     </Drawer>
+                    }
+                    {hideMenu && !expandMenuCalc &&
+                        <IconButton
+                            className={classes.menuButtonExpandMobile}
+                            onClick={() => {
+                                this.onMouseOver();
+                            }}
+                        >
+                            <Menu/>
+                        </IconButton>
+                    }
                 </div>
             </ClickAwayListener>
         );
