@@ -89,7 +89,7 @@ export class SideStripComponent extends React.Component {
 
     render() {
         const {classes, mainLinks, bottomLinks, expandMenu,
-            userLabel, imageUrl
+            userLabel, imageUrl, avatarInitials
         } = this.props;
         const {expandMenuInternal, secondaryMenuOptions, secondaryMenuParent,
             hideMenu
@@ -134,7 +134,7 @@ export class SideStripComponent extends React.Component {
                         <Avatar src={imageUrl}
                                 className={classes.avatarMain}
                                 onMouseOver={() => this.onMouseOver()}>
-                            <Person/>
+                            {avatarInitials || <Person/>}
                         </Avatar>
                         {expandMenuCalc && <p className={classes.userLabel}>{userLabel}</p>}
                         <Divider className={classes.divider}/>

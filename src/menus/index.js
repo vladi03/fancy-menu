@@ -29,6 +29,7 @@ export const DemoMenu = ()=> {
                            bottomLinks={bottomLinks}
                            expandMenu={false}
                            userLabel="Jane Smith"
+                           avatarInitials="VM"
                            imageUrl="https://material-ui.com/static/images/avatar/7.jpg"
             />
             <div style={{marginLeft: 86, marginTop: 20}}>Hello World ! This is a working example os fancy menu.</div>
