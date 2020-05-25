@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import {withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
