@@ -1,9 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Drawer, Avatar, Divider, ClickAwayListener,
-    IconButton , withStyles } from '@material-ui/core';
+import {withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import IconButton from '@material-ui/core/IconButton';
+
 import { styles } from "./style";
-import { Person, Close, Menu } from "@material-ui/icons";
+import Person from "@material-ui/icons/Person";
+import Close from "@material-ui/icons/Close";
+import Menu from "@material-ui/icons/Menu";
+
 import { MenuButton } from "./MenuButton";
 import { SideSecondary } from "./SideSecondary";
 

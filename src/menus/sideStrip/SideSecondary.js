@@ -1,6 +1,12 @@
 import React from 'react';
-import { Drawer, Avatar, List,
-    ListItem, ListItemIcon, ListItemText, withStyles } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { withStyles } from '@material-ui/core/styles';
+
 import { styles } from "./style";
 
 
