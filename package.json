@@ -1,6 +1,6 @@
 {
   "name": "fancy-menu",
-  "version": "0.11.0",
+  "version": "0.11.2",
   "description": "Navigation Menus based on React JS and Material UI",
   "main": "./lib/index.js",
   "files": [
@@ -42,8 +42,9 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
-    "@material-ui/core": "^3.9.4",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.4.3",
+    "@material-ui/icons": "^4.4.3",
+    "@material-ui/styles": "^4.4.3",
     "cross-env": "^6.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

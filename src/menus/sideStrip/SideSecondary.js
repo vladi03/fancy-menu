@@ -1,11 +1,16 @@
 import React from 'react';
-import { Drawer, Avatar, List,
-    ListItem, ListItemIcon, ListItemText, withStyles } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
+
 import { styles } from "./style";
 
-
-export const SideSecondaryComponent = ({classes, show, menuParent, menuList, onClose}) => {
-
+export const SideSecondaryComponent = ({show, menuParent, menuList, onClose}) => {
+    const classes = useStyles();
     return (
         <Drawer
             classes={{paper: classes.menuSecond  }}
@@ -38,5 +43,7 @@ export const SideSecondaryComponent = ({classes, show, menuParent, menuList, onC
     )
 };
 
-export const  SideSecondary = withStyles(styles, { withTheme: true })(SideSecondaryComponent);
+const useStyles = makeStyles(styles);
+
+export const  SideSecondary = SideSecondaryComponent;
 
