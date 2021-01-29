@@ -97,7 +97,7 @@ export class SideStripComponent extends React.Component {
 
     render() {
         const {classes, mainLinks, bottomLinks, expandMenu,
-            userLabel, imageUrl, avatarInitials
+            userLabel, imageUrl, avatarInitials, hideAvatar
         } = this.props;
         const {expandMenuInternal, secondaryMenuOptions, secondaryMenuParent,
             hideMenu
@@ -105,6 +105,7 @@ export class SideStripComponent extends React.Component {
 
         const expandMenuCalc = expandMenu || expandMenuInternal;
         const showSecondaryMenu = expandMenuCalc && secondaryMenuOptions.length > 0;
+        const showAvatar = hideAvatar != true;
 
         return  (
             <ClickAwayListener
@@ -139,11 +140,11 @@ export class SideStripComponent extends React.Component {
                             <Close fontSize="small"/>
                         </IconButton>
                         }
-                        <Avatar src={imageUrl}
+                        {showAvatar && <Avatar src={imageUrl}
                                 className={classes.avatarMain}
                                 onMouseOver={() => this.onMouseOver()}>
                             {avatarInitials || <Person/>}
-                        </Avatar>
+                        </Avatar>}
                         {expandMenuCalc && <p className={classes.userLabel}>{userLabel}</p>}
                         <Divider className={classes.divider}/>
 
