@@ -62,6 +62,7 @@ export const styles = (theme ) => {
         menuButtonExpandMobile: {
             position: "fixed",
             top:0,
+            zIndex: 999
         },
         menuButtonLabel: {
             marginLeft: 5,
