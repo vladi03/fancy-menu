@@ -11,7 +11,7 @@ import DataUsage from "@material-ui/icons/DataUsage";
 
 const mainLinks = [
     {label : "Home", icon: Home, selected: true, link:"#home" },
-    {label : "Report", icon: Wallpaper, link:"#report" },
+    {label : "Purchase Options", icon: Wallpaper, link:"#report" },
     {label : "Admin", icon: PieChart,
         subMenu: [
             { label : "My Dashboard", icon: Dashboard, link:"#mydashboard" },

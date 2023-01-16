@@ -1,7 +1,7 @@
 
-const menuExpandWidth = 150;
+const menuExpandWidth = 225;
 
-export const styles = (theme ) => {
+export const styles = (theme) => {
     return ({
         menuSecond: {
             minWidth: menuExpandWidth,
@@ -66,7 +66,7 @@ export const styles = (theme ) => {
         },
         menuButtonLabel: {
             marginLeft: 5,
-            width: 100
+            width: "100%"
         },
         menuButtonShape: {
             minWidth: 0,

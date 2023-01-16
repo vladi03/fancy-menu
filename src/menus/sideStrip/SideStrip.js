@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import withStyles from '@material-ui/core/styles/withStyles';
+import {withStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
@@ -18,8 +18,8 @@ import { SideSecondary } from "./SideSecondary";
 let timerRef = null;
 
 export class SideStripComponent extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             selectedInternal: {area: "byConfig", index: -1},
             isMobile: false,
@@ -105,7 +105,7 @@ export class SideStripComponent extends React.Component {
 
         const expandMenuCalc = expandMenu || expandMenuInternal;
         const showSecondaryMenu = expandMenuCalc && secondaryMenuOptions.length > 0;
-        const showAvatar = hideAvatar != true;
+        const showAvatar = hideAvatar !== true;
 
         return  (
             <ClickAwayListener
