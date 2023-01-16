@@ -1,6 +1,6 @@
 {
   "name": "fancy-menu",
-  "version": "0.13.1",
+  "version": "0.14.0",
   "description": "Navigation Menus based on React JS and Material UI",
   "main": "./lib/index.js",
   "files": [
