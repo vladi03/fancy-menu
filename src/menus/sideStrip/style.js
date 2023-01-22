@@ -1,5 +1,5 @@
 
-const menuExpandWidth = 225;
+const menuExpandWidth = 240;
 
 export const styles = (theme) => {
     return ({
