@@ -97,6 +97,14 @@ export const styles = (theme) => {
             marginBottom: 12,
             marginTop: 12
         },
+        menuButtonTitle: {
+            color: "#d7e5c5",
+            marginBottom: 12,
+            marginTop: 12,
+            borderTopLeftRadius: 120,
+            backgroundColor: "#8b878e",
+            cursor: "default"
+        },
         littleRightBorder : {
             //backgroundColor: "beige",
             width: 150,

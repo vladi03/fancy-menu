@@ -10,14 +10,17 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import DataUsage from "@material-ui/icons/DataUsage";
 
 const mainLinks = [
+    {label : "Main", icon: Wallpaper },
     {label : "Home", icon: Home, selected: true, link:"#home" },
-    {label : "Purchase Options", icon: Wallpaper, link:"#report" },
     {label : "Admin", icon: PieChart,
         subMenu: [
             { label : "My Dashboard", icon: Dashboard, link:"#mydashboard" },
             { label : "Data Discovery", icon: DataUsage, link:"#datausage" },
         ]
-    }
+    },
+    {label : "Purchase Options", icon: Wallpaper },
+    {label : "Blimp Options", icon: Wallpaper, link:"#report" },
+    {label : "Acme Options", icon: Wallpaper, link:"#report" }
 ];
 
 const bottomLinks = [
